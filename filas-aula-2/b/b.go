@@ -9,6 +9,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"fmt"
 	"net/url"
 )
 
@@ -39,7 +40,14 @@ func init() {
 	}
 }
 
+func handler(w http.ResponseWriter, r *http.Request) {
+    fmt.Fprintf(w, "microsservico-avancadev-b OK")
+}
+
 func main() {
+	http.HandleFunc("/", handler)
+	http.ListenAndServe(":9091", nil)
+
 	messageChannel := make(chan amqp.Delivery)
 
 	rabbitMQ := queue.NewRabbitMQ()

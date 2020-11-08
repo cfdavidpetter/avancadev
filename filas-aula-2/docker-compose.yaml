@@ -1,6 +1,20 @@
 version: '3'
 
 services:
+  microservicoa:
+    image: cfdavidpetter/microsservico-avancadev-a
+    ports:
+      - 9090:9090
+
+  microservicob:
+    image: cfdavidpetter/microsservico-avancadev-b
+    ports:
+      - 9091:9091
+
+  microservicoc:
+    image: cfdavidpetter/microsservico-avancadev-c
+    ports:
+      - 9092:9092
 
   rabbit:
     image: "rabbitmq:3-management"
